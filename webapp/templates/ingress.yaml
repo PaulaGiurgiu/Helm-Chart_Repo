@@ -3,6 +3,11 @@ kind: Ingress
 metadata:
   name: webapp-ingress
   namespace: webapp-namespace
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name }}
+    meta.helm.sh/release-namespace: webapp-namespace
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:

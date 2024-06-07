@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/managed-by: Helm
   annotations:
-    meta.helm.sh/release-name: release1
+    meta.helm.sh/release-name: {{ .Release.Name }}
     meta.helm.sh/release-namespace: webapp-namespace
 spec:
   storageClassName: manual
@@ -25,7 +25,7 @@ metadata:
   labels:
     app.kubernetes.io/managed-by: Helm
   annotations:
-    meta.helm.sh/release-name: release1
+    meta.helm.sh/release-name: {{ .Release.Name }}
     meta.helm.sh/release-namespace: webapp-namespace
 spec:
   storageClassName: manual

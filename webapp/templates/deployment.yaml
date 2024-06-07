@@ -1,13 +1,13 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: {{ .Values.kindDeployment }}
 metadata:
   name: webapp-mysql
-  namespace: webapp-namespace
+  namespace: {{ .Values.namespace }}
   labels:
     app.kubernetes.io/managed-by: Helm
   annotations:
-    meta.helm.sh/release-name: release1
-    meta.helm.sh/release-namespace: webapp-namespace
+    meta.helm.sh/release-name: {{ .Release.Name }}
+    meta.helm.sh/release-namespace: {{ .Values.namespace }}
 spec:
   selector:
     matchLabels:
@@ -53,7 +53,7 @@ metadata:
     app: webapp-deployment-backend
     app.kubernetes.io/managed-by: Helm
   annotations:
-    meta.helm.sh/release-name: release1
+    meta.helm.sh/release-name: {{ .Release.Name }}
     meta.helm.sh/release-namespace: webapp-namespace
 spec:
   replicas: 1
@@ -96,7 +96,7 @@ metadata:
     app: webapp-frontend
     app.kubernetes.io/managed-by: Helm
   annotations:
-    meta.helm.sh/release-name: release1
+    meta.helm.sh/release-name: {{ .Release.Name }}
     meta.helm.sh/release-namespace: webapp-namespace
 spec:
   replicas: 1
