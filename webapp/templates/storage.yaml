@@ -4,7 +4,10 @@ metadata:
   name: mysql-pv-volume
   namespace: webapp-namespace
   labels:
-    type: local
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: release1
+    meta.helm.sh/release-namespace: webapp-namespace
 spec:
   storageClassName: manual
   capacity:
@@ -19,6 +22,11 @@ kind: PersistentVolumeClaim
 metadata:
   name: mysql-pv-claim
   namespace: webapp-namespace
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: release1
+    meta.helm.sh/release-namespace: webapp-namespace
 spec:
   storageClassName: manual
   accessModes:

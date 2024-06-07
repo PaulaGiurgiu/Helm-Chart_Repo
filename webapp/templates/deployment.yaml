@@ -3,6 +3,11 @@ kind: Deployment
 metadata:
   name: webapp-mysql
   namespace: webapp-namespace
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: release1
+    meta.helm.sh/release-namespace: webapp-namespace
 spec:
   selector:
     matchLabels:
@@ -46,6 +51,10 @@ metadata:
   namespace: webapp-namespace
   labels:
     app: webapp-deployment-backend
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: release1
+    meta.helm.sh/release-namespace: webapp-namespace
 spec:
   replicas: 1
   selector:
@@ -85,6 +94,10 @@ metadata:
   namespace: webapp-namespace
   labels:
     app: webapp-frontend
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: release1
+    meta.helm.sh/release-namespace: webapp-namespace
 spec:
   replicas: 1
   selector:
