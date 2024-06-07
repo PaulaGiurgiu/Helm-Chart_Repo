@@ -110,6 +110,6 @@ spec:
     spec:
       containers:
       - name: webapp-frontend
-        image: paulagiurgiu/frontend-webapp:webapp
+        image: paulagiurgiu/frontend-webapp-paula:latest
         ports:
         - containerPort: 3000
