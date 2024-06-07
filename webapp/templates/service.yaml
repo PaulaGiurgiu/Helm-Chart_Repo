@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql
-  namespace: webapp-namespace
+  namespace: {{ .Values.namespace }}
   labels:
     app.kubernetes.io/managed-by: Helm
   annotations:
     meta.helm.sh/release-name: {{ .Release.Name }}
-    meta.helm.sh/release-namespace: webapp-namespace
+    meta.helm.sh/release-namespace: {{ .Values.namespace }}
 spec:
   ports:
   - port: 3306
@@ -20,13 +20,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: webapp-backend-service
-  namespace: webapp-namespace
+  namespace: {{ .Values.namespace }}
   labels:
     app: webapp-backend
     app.kubernetes.io/managed-by: Helm
   annotations:
     meta.helm.sh/release-name: {{ .Release.Name }}
-    meta.helm.sh/release-namespace: webapp-namespace
+    meta.helm.sh/release-namespace: {{ .Values.namespace }}
 spec:
   selector:
     app: webapp-backend
@@ -42,12 +42,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: webapp-frontend-service
-  namespace: webapp-namespace
+  namespace: {{ .Values.namespace }}
   labels:
     app.kubernetes.io/managed-by: Helm
   annotations:
     meta.helm.sh/release-name: {{ .Release.Name }}
-    meta.helm.sh/release-namespace: webapp-namespace
+    meta.helm.sh/release-namespace: {{ .Values.namespace }}
 spec:
   selector:
     app: webapp-frontend

@@ -48,13 +48,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp-deployment-backend
-  namespace: webapp-namespace
+  namespace: {{ .Values.namespace }}
   labels:
     app: webapp-deployment-backend
     app.kubernetes.io/managed-by: Helm
   annotations:
     meta.helm.sh/release-name: {{ .Release.Name }}
-    meta.helm.sh/release-namespace: webapp-namespace
+    meta.helm.sh/release-namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
@@ -91,13 +91,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp-deployment-frontend
-  namespace: webapp-namespace
+  namespace: {{ .Values.namespace }}
   labels:
     app: webapp-frontend
     app.kubernetes.io/managed-by: Helm
   annotations:
     meta.helm.sh/release-name: {{ .Release.Name }}
-    meta.helm.sh/release-namespace: webapp-namespace
+    meta.helm.sh/release-namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
