@@ -1,0 +1,9 @@
+apiVersion: v2
+description: A Helm chart for Kubernetes
+icon: https://media.istockphoto.com/id/1464561797/ro/fotografie/unitate-de-procesare-a-inteligen%C8%9Bei-artificiale-component%C4%83-puternic%C4%83-quantum-ai-pe-placa.jpg?s=1024x1024&w=is&k=20&c=rxIATtZuca76x9qX0F7-Zj3aCHREwiX2sHcvd_aL8LQ=
+maintainers:
+- email: paulagiurgiu2001@yahoo.com
+  name: Paula Giurgiu
+name: webapp
+type: application
+version: 0.1.0
